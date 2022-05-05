@@ -1,6 +1,6 @@
 
 
-
+const Compiler = require('./Compiler')
 
 function webpack(options) {
   // 初始参数 从配置文件和 shell语句中读取并合并参数 得出最终的配置对象
