@@ -21,8 +21,42 @@ let rules = [
 
 
 let parts = request.replace(/^-?!+/, '').split('!')
-let resource = parts.pop()//把目标文件弹出，只剩下行内loader
+let resource = parts.pop()//把目标文件弹出，parts只剩下行内loader   resource 是${entryFile}
 let inlineLoaders = parts
 //loader的叠加顺序 = post（后置）+inline（内联）+normal(正常) + pre（前置） 厚脸挣钱
 
-let preLoaders = [], postLoaders
+let preLoaders = [], postLoaders = [], normalLoaders = []
+for(let i = 0; i < rules.length; i++){
+  let rule = rules[i]
+  if (rule.test.test(resource)) {
+    if (rule.enforce === 'post') {
+      postLoaders.push(...rule.use)
+    }else if (rule.enforce === 'pre') {
+      preLoaders.push(...rule.use)
+    } else {
+      normalLoaders.push(...rule.use)
+    }
+  }
+}
+
+let loaders = []
+//noPrePostAutoLoaders	不要前后置和普通 loader,只要内联 loader
+if (request.startsWith('!!')) {
+  loaders.push(...inlineLoaders);
+}else if (request.startsWith('-!')) {
+  //不要前置和普通Loader
+  loaders.push(...postLoaders, ...inlineLoaders)
+}else if (request.startsWith('!')) {
+  //不要普通loader
+  loaders.push(...postLoaders, ...inlineLoaders, ...preLoaders)
+}else{
+  loaders.push(...postLoaders, ...inlineLoaders, ...normalLoaders, ...preLoaders)
+}
+
+loaders = loaders.map(loader => path.resolve(__dirname, 'loaders', loader));
+runLoaders({
+  resource,
+  loaders
+}, (err, result) => {
+  console.log(result);
+});

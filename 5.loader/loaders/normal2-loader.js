@@ -5,6 +5,6 @@ function loader(source) {
 }
 loader.pitch = function () {
   console.log('normal2-pitch');
-  return 'normal2-content';
+  // return 'normal2-content';
 }
 module.exports = loader;
