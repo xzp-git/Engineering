@@ -2,8 +2,8 @@
 // import polyfill from './plugins/rollup-plugin-polyfill.js';
 // import babel from './plugins/rollup-plugin-babel.js';
 //import generation from './plugins/rollup-plugin-generation.js';
-import dynamicImport from './plugins/rollup-plugin-dynamicImport.js';
-//import resolveFileUrl from './plugins/rollup-plugin-resolveFileUrl.js';
+// import dynamicImport from './plugins/rollup-plugin-dynamicImport.js';
+import resolveFileUrl from './plugins/rollup-plugin-resolveFileUrl.js';
 //import html from './plugins/rollup-plugin-html.js';
 //import commonjs from '@rollup/plugin-commonjs';
 //import commonjs from './plugins/rollup-plugin-commonjs.js';
@@ -24,8 +24,8 @@ export default {
     //    exclude: /node_modules/,
     //    extensions: ['.js', '.jsx']
     //  })
-    dynamicImport()
-    //resolveFileUrl(),
+    // dynamicImport()
+    resolveFileUrl(),
     //html()
     //commonjs()
     //resolve(),
