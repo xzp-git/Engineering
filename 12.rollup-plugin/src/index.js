@@ -1,13 +1,15 @@
-// import isArray from 'isArray';
-// console.log(isArray);
+import isArray from 'isArray';
+console.log(isArray);
 
-// console.log("index")
+// // console.log("index")
 
 
-// const sum = (a,b) => a+b
+// // const sum = (a,b) => a+b
 
-// console.log(sum(10, 3));
+// // console.log(sum(10, 3));
 
-import("./title").then((res) => {
-    console.log(res);
-})
+// // import("./title").then((res) => {
+// //     console.log(res);
+// // })
+
+// module.exports = "title"

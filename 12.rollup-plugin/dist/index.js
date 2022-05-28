@@ -1,13 +1,16 @@
-// import isArray from 'isArray';
-// console.log(isArray);
+var isArray = Array.isArray;
 
-// console.log("index")
+console.log(isArray);
+
+// // console.log("index")
 
 
-// const sum = (a,b) => a+b
+// // const sum = (a,b) => a+b
 
-// console.log(sum(10, 3));
+// // console.log(sum(10, 3));
 
-dynamicImportPolyfill('./title-013f5190.js',import.meta.url).then((res) => {
-    console.log(res);
-});
+// // import("./title").then((res) => {
+// //     console.log(res);
+// // })
+
+// module.exports = "title"
