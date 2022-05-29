@@ -18,4 +18,9 @@ async function createServer() {
 }
 
 
+async function runOptimize(config, server) {
+    const optimizeDeps = await createOptimizeDepsRun(config)
+}
+
+
 exports.createServer = createServer
