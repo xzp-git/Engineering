@@ -1,5 +1,5 @@
 const connect = require('connect');
-
+const { createOptimizeDepsRun } = require('../optimizer');
 async function createServer() {
     const config = await resolveConfig()
 
@@ -20,6 +20,7 @@ async function createServer() {
 
 async function runOptimize(config, server) {
     const optimizeDeps = await createOptimizeDepsRun(config)
+
 }
 
 
