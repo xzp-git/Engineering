@@ -11,7 +11,8 @@ const JS_TYPES_RE = /\.js$/;
 async function esBuildScanPlugin(config, depImports) {
     config.plugins = [resolvePlugin(config)]
     const container = await createPluginContainer(config)
-    //此方法第一次执行的时候 import
+    //此方法第一次执行的时候 importee = C:\vite522use\index.html
+    // const resolve = async ()
 }
 
 
